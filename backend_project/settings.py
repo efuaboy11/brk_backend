@@ -105,7 +105,7 @@ if ENVIRONMENT == "production":
         "default": {
             "ENGINE": "django.db.backends.postgresql",
             "NAME": "veloxarionDatabase",
-            "USER": "veloxarionUser",
+            "USER": "veloxarionuser",
             "PASSWORD": "veloxarion11",
             "HOST": "127.0.0.1",
             "PORT": "5432",
