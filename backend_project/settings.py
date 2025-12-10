@@ -104,9 +104,9 @@ if ENVIRONMENT == "production":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "mydatabase",
-            "USER": "myuser",
-            "PASSWORD": "terrysilva11",
+            "NAME": "veloxarionDatabase",
+            "USER": "veloxarionUser",
+            "PASSWORD": "veloxarion11",
             "HOST": "153.92.222.155",
             "PORT": "5432",
         }
