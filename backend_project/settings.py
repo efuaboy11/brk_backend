@@ -31,8 +31,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "153.92.222.155",
     "127.0.0.1",
-    "api.amanilightequity.com",
-    "amanilightequity.com"
+    "api.veloxarion.com",
+    "portal.veloxarion.com",
+    "veloxarion.com"
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -97,7 +98,7 @@ WSGI_APPLICATION = 'backend_project.wsgi.application'
 
 env = environenv = Env()
 Env.read_env()
-ENVIRONMENT = env('ENVIRONMENT', default='developnment')
+ENVIRONMENT = env('ENVIRONMENT', default='production')
 
 if ENVIRONMENT == "production":
     DATABASES = {
@@ -182,9 +183,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://153.92.222.155", 
-    "http://api.amanilightequity.com",
-    "http://amanilightequity.com",
-    
+    "http://api.veloxarion.com",
+    "http://veloxarion.com",
+    "http://portal.veloxarion.com",
 ]
     
 AUTH_USER_MODEL = 'base.NewUser'
@@ -198,8 +199,8 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'iamterrysilva123456789@gmail.com'  # Your Gmail account
-EMAIL_HOST_PASSWORD = 'enio zatp intb hwtu'  # Your Gmail password or app-specific password
+EMAIL_HOST_USER = 'support@veloxarion.com'  # Your Gmail account
+EMAIL_HOST_PASSWORD = '@Fintan123'  # Your Gmail password or app-specific password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
