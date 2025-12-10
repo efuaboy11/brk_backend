@@ -15,7 +15,6 @@ from django.contrib.contenttypes.models import ContentType
 class CustomAccountManager(BaseUserManager):
 
     def create_superuser(self, full_name, email, user_name, password, **other_fields):
-        # Set the role to ADMIN for superusers
         other_fields.setdefault('role', NewUser.Role.ADMIN)
         other_fields.setdefault('is_staff', True)
         other_fields.setdefault('is_superuser', True)
@@ -26,21 +25,22 @@ class CustomAccountManager(BaseUserManager):
         if other_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
 
-        return self.create_user(full_name, email, user_name, password, **other_fields)
+        # DO NOT create UserBalance for superusers
+        return self.create_user(full_name, email, user_name, password, **other_fields, create_balance=False)
 
-    def create_user(self, full_name, email, user_name, password, **other_fields):
-        # Set the role to USER for regular users
+    def create_user(self, full_name, email, user_name, password, create_balance=True, **other_fields):
         other_fields.setdefault('role', NewUser.Role.USER)
         other_fields.setdefault('is_active', True)
 
         email = self.normalize_email(email)
         user = self.model(email=email, user_name=user_name, full_name=full_name, **other_fields)
-        
-        
         user.set_password(password)
         user.save(using=self._db)
-        
-        UserBalance.objects.create(user=user)
+
+        # Create UserBalance ONLY if create_balance is True
+        if create_balance and user.role == NewUser.Role.USER:
+            UserBalance.objects.get_or_create(user=user)
+
         return user
 
 
