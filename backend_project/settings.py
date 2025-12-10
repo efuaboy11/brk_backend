@@ -107,7 +107,7 @@ if ENVIRONMENT == "production":
             "NAME": "veloxarionDatabase",
             "USER": "veloxarionUser",
             "PASSWORD": "veloxarion11",
-            "HOST": "153.92.222.155",
+            "HOST": "127.0.0.1",
             "PORT": "5432",
         }
     }
