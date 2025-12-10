@@ -104,13 +104,14 @@ if ENVIRONMENT == "production":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "veloxariondatabase",
-            "USER": "veloxarionuser",
+            "NAME": "velox_db",
+            "USER": "velox_user",
             "PASSWORD": "veloxarion11",
             "HOST": "127.0.0.1",
             "PORT": "5432",
         }
     }
+
 else:
     DATABASES = {
         "default": {
